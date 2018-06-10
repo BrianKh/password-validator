@@ -14,12 +14,35 @@ public class ValidateUnitTest {
     }
 
     @Test
-    public void check_pass1(){
-        assertFalse(validator.validate("test"));
+    public void check_passLenght(){
+        assertFalse(validator.validate("!;ES"));
     }
 
     @Test
-    public void check_pass2(){
+    public void check_passNotPassword(){
         assertFalse(validator.validate("password"));
+    }
+
+    @Test
+    public void check_passAllLow(){
+        assertFalse(validator.validate("1;noupperinthisstring"));
+    }
+
+    @Test
+    public void check_passAllUp(){
+        assertFalse(validator.validate("1;ALLUPINTHISSTRING"));
+    }
+
+    @Test
+    public void check_passContainsSpecial(){
+        assertFalse(validator.validate("1ContainsAllButSpecial"));
+    }
+    @Test
+    public void check_passContainsDigit(){
+        assertFalse(validator.validate("!AllBesidesDigit"));
+    }
+    @Test
+    public void check_all(){
+        assertTrue(validator.validate("!AllOfThemAreHere1"));
     }
 }

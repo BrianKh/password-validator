@@ -5,9 +5,17 @@ package com.example.biswe.myapplication;
 
 public class Validator {
     public boolean validate(String pass){
-        if(pass.length()>= 8 && !pass.equals("password") ){
+
+        boolean passLength = pass.length() >= 8;
+        boolean passNotPassword = !pass.equals("password");
+        boolean passUpAndLow = !pass.equals(pass.toLowerCase())  && !pass.equals(pass.toUpperCase());
+        boolean passHasSpecials = pass.matches(".*[!@#$%^&*].*");
+        boolean passHasDigits = pass.matches(".*[0-9].*");
+
+        if(passLength && passNotPassword && passUpAndLow && passHasSpecials && passHasDigits){
             return true;
+        } else {
+            return false;
         }
-        return false;
     }
 }

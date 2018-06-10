@@ -21,7 +21,6 @@ import static android.support.test.espresso.Espresso.onView;
 @RunWith(AndroidJUnit4.class)
 public class EspressoTest {
     private String stringValid;
-    private String stringPassed;
     @Rule
     public ActivityTestRule<MainActivity> activityRule = new ActivityTestRule(MainActivity.class);
     @Before
